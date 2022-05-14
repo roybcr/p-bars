@@ -17,8 +17,7 @@ func main() {
 
 		i := 0
 		for {
-			/* send i over the channel then wait 1 second
-			for a maximum of `max` seconds */
+
 			ch <- i
 			i++
 			time.Sleep(time.Duration(time.Millisecond * 1000))
@@ -53,7 +52,6 @@ func main() {
 			fmt.Printf(c3msg)
 
 		case sec := <-ch:
-			// clear terminal and output msg as it recieves
 			t := fmt.Sprintf("\033c%vs", sec+1)
 			fmt.Println(t)
 
